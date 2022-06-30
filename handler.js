@@ -1,6 +1,7 @@
 'use strict';
 const os = require('os');
 
+//Hola Deanbeat
 module.exports.getOsInfo = async (event) => {
   return {
     statusCode: 200,
