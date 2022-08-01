@@ -1,15 +1,22 @@
 {
-    "lambdaFunction": {
-        "lambdaArn": "arn:aws:greengrass:eu-west-1:998235366130:components:com.example.test_lambda_function:versions:1.0.0",
-        "componentName": "com.example.aws-lambda-serverless-starter",
-        "componentVersion": "1.0.0",
-        "componentLambdaParameters": {
-            "eventSources": [
-                {
-                    "topic": "hello/world/+",
-                    "type": "IOT_CORE"
-                }
-            ]
+    "RecipeFormatVersion": "2020-01-25",
+    "ComponentName": "com.example.test_lambdas_function",
+    "ComponentVersion": "1.0.0",
+    "ComponentDescription": "My first AWS IoT Greengrass component.",
+    "ComponentPublisher": "Amazon",
+    "ComponentConfiguration": {
+        "DefaultConfiguration": {
+            "Message": "world"
         }
-    }
+    },
+    "Manifests": [
+        {
+            "Platform": {
+                "os": "All"
+            },
+            "Lifecycle": {
+                "Run": "echo 'Hello {configuration:/Message}'"
+            }
+        }
+    ]
 }

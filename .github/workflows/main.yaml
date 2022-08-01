@@ -30,5 +30,15 @@ jobs:  #Workflow run is made up of one or more jobs
         run: |
           zip -j deploy.zip ./* #--> Zip the Code As we know lambda function accept the zip file.
           aws lambda update-function-code --function-name=test_lambda_function_ci_cd --zip-file=fileb://deploy.zip 
+      - run: zip lambda.zip /.github/workflowslambda-function-component.json
+      - run: ls
+      - name: Deploy AWS Lambda function
+        uses: yvesgurcan/deploy-lambda-function@v0.0.5
+        with:
+          package: lambda.zip 
+          function-name: com.example.test_lambda_function_git
+          AWS_SECRET_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }} 
+          AWS_SECRET_ID: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: eu-west-1
 # At last the AWS CLI command to Update the Zip file with existing One (With Correct Function Name)
 # Function most exist before
