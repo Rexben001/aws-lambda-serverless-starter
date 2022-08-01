@@ -1,0 +1,15 @@
+{
+    "lambdaFunction": {
+        "lambdaArn": "arn:aws:greengrass:eu-west-1:998235366130:components:com.example.test_lambda_function:versions:1.0.0",
+        "componentName": "com.example.aws-lambda-serverless-starter",
+        "componentVersion": "1.0.0",
+        "componentLambdaParameters": {
+            "eventSources": [
+                {
+                    "topic": "hello/world/+",
+                    "type": "IOT_CORE"
+                }
+            ]
+        }
+    }
+}
